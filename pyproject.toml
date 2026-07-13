@@ -1,0 +1,30 @@
+[project]
+name = "assay"
+version = "0.1.0"
+description = "Authoring repo for the assay@ bom package and home of the assay method: blind trials of intent against the real system. The product is the published artifact, not this Python."
+requires-python = ">=3.11"
+dependencies = [
+    "bom",
+]
+
+[tool.uv.sources]
+# Pinned by rev, always: bom is pre-1.0 and the doctrine is fork-or-republish.
+bom = { git = "https://github.com/xag/bom", rev = "50aa192" }
+
+[dependency-groups]
+dev = [
+    "pytest>=8.0.0",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.metadata]
+allow-direct-references = true
+
+[tool.hatch.build.targets.wheel]
+packages = ["assay"]
+
+[tool.pytest.ini_options]
+pythonpath = ["."]

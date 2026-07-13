@@ -1,0 +1,9 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+.pytest_cache/
+
+# synced bom package cache (bom.lock is the source of truth)
+.bom/
+node_modules/
