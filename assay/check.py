@@ -7,7 +7,7 @@ from __future__ import annotations
 
 import sys
 
-from bom import run_rules
+from quern import run_rules
 
 from .tree import build
 

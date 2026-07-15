@@ -1,12 +1,12 @@
 # assay
 
 Blind trials of intent against the real system — the third substrate, beside
-flight-recorder and bom.
+flight-recorder and quern.
 
 | substrate | question it answers | holds |
 |---|---|---|
 | **flight-recorder** | *what happened?* | evidence — tapes at the nondeterminism boundary |
-| **bom** | *what must hold?* | claims as checkable data — rules, hypotheses, debts, gates |
+| **quern** | *what must hold?* | claims as checkable data — rules, hypotheses, debts, gates |
 | **assay** | *does it survive the world?* | confrontation — blind trials of intent against the running thing |
 
 An assay was the standardized blind trial at the gate to capitalization: ore became coin
@@ -40,4 +40,4 @@ only by passing the assay office. Nothing becomes capital without surviving a tr
 Flight boundary, said out loud: assay itself is pure data plus rigs. The rigs drive
 real implementations deterministically; recording lives with the app under trial
 (walkthrough sessions and flights record like any other), and the only IO in this repo
-is `Library.publish` — bom's code under bom's tests.
+is `Library.publish` — quern's code under quern's tests.

@@ -73,7 +73,7 @@ From the code and docs of the app, write what purpose it serves — then strip t
 - Short and human: ~5 paragraphs, written like you'd explain it to a friend.
 - Language: the users' language.
 
-Journal the intent's creation in the app's ledger/bom with a pointer to the file.
+Journal the intent's creation in the app's ledger/quern with a pointer to the file.
 
 ## Step 2 — Blind scenario generation (subagent)
 
@@ -187,7 +187,7 @@ checklists are ignored.
 
 ### The laws
 
-**The laws are a bom package — `craft@0.1.0`, in `xag/craft-laws`, pinned by rev.** They are not
+**The laws are a quern package — `craft@0.1.0`, in `xag/craft-laws`, pinned by rev.** They are not
 a checklist and they do not live here.
 
 `./references/craft-laws.md` is a **rendered view** of that data, stamped with the commit it came
