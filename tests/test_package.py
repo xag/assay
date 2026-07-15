@@ -7,9 +7,9 @@ from pathlib import Path
 
 import pytest
 
-import bom.grounding  # noqa: F401 -- ledger@'s proofs re-run at sync and call these
-from bom import Bom, Library, run_rules
-from bom.library import consume, package_digest, sync
+import quern.grounding  # noqa: F401 -- ledger@'s proofs re-run at sync and call these
+from quern import Quern, Library, run_rules
+from quern.library import consume, package_digest, sync
 
 from assay.package import ASSAY_PACKAGE
 
@@ -19,8 +19,8 @@ ROOT = Path(__file__).resolve().parents[1]
 @pytest.fixture
 def library(tmp_path):
     lib = Library(tmp_path)
-    cache, refs = consume(ROOT, os.environ.get("BOM_REGISTRY",
-                                               ROOT.parent / "bom-registry"))
+    cache, refs = consume(ROOT, os.environ.get("QUERN_REGISTRY",
+                                               ROOT.parent / "quern-registry"))
     sync(cache, lib, [r for r in refs if r.name in ("ledger", "grounding")])
     return lib
 
@@ -32,8 +32,8 @@ def test_assay_publishes_with_its_proofs(library):
 
 
 def test_the_authored_package_is_the_published_artifact():
-    _, refs = consume(ROOT, os.environ.get("BOM_REGISTRY",
-                                           ROOT.parent / "bom-registry"))
+    _, refs = consume(ROOT, os.environ.get("QUERN_REGISTRY",
+                                           ROOT.parent / "quern-registry"))
     pinned = next(r for r in refs if r.name == "assay")
     assert package_digest(ASSAY_PACKAGE) == pinned.sha256
 
@@ -42,9 +42,9 @@ def test_a_provisoire_verdict_is_visible_to_a_gate(library):
     """The receipts discipline composes with ledger@'s gate without a single new rule:
     a verdict whose evidence is ungrounded (provisoire) cannot pass a release gate that
     admits it — exactly as a debt cannot."""
-    from bom import Node, Quantity
+    from quern import Node, Quantity
     library.publish(ASSAY_PACKAGE, {})
-    tree = Bom(packages=[{"name": "assay", "version": "0.1.0"}])
+    tree = Quern(packages=[{"name": "assay", "version": "0.1.0"}])
     tree = library.effective(tree)
     tree.root.children = [
         Node(id="v", kind="verdict", name="pass, pending receipt verification",

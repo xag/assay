@@ -7,20 +7,20 @@ from __future__ import annotations
 import os
 from pathlib import Path
 
-import bom.grounding  # noqa: F401 -- the natives; the packages arrive by pin
-from bom import Bom, Node, Quantity
-from bom.library import consume
+import quern.grounding  # noqa: F401 -- the natives; the packages arrive by pin
+from quern import Quern, Node, Quantity
+from quern.library import consume
 
 _ROOT = Path(__file__).resolve().parents[1]
 
 
-def build() -> Bom:
-    lib, refs = consume(_ROOT, os.environ.get("BOM_REGISTRY",
-                                              _ROOT.parent / "bom-registry"))
-    bom = Bom(packages=[next(r for r in refs if r.name == "ledger")])
-    bom = lib.effective(bom)
+def build() -> Quern:
+    lib, refs = consume(_ROOT, os.environ.get("QUERN_REGISTRY",
+                                              _ROOT.parent / "quern-registry"))
+    quern = Quern(packages=[next(r for r in refs if r.name == "ledger")])
+    quern = lib.effective(quern)
 
-    bom.root.children = [
+    quern.root.children = [
         Node(
             id="extracted-at-third-use",
             kind="decision",
@@ -35,7 +35,7 @@ def build() -> Bom:
                     "(invest re-authored the ledger's kinds, home rolled its own — the "
                     "fleet has paid for late extraction before).",
                 "note": "Proposed and argued in xag/claude-plugins#1; unblocked by "
-                        "xag/bom#19 (the channel assay@ travels on).",
+                        "xag/quern#19 (the channel assay@ travels on).",
             },
             children=[
                 Node(id="alt-stay-a-skill", kind="alternative",
@@ -46,9 +46,9 @@ def build() -> Bom:
                                      "stand-in fidelity, receipts) are claims that can "
                                      "go RED, and prose cannot fire. The skill stays, "
                                      "but as the procedure half only."}),
-                Node(id="alt-fourth-substrate-in-bom", kind="alternative",
-                     name="Author assay@ inside bom's source like ledger@ once was",
-                     payload={"why": "Rejected by discharge: the exact siting bom's own "
+                Node(id="alt-fourth-substrate-in-quern", kind="alternative",
+                     name="Author assay@ inside quern's source like ledger@ once was",
+                     payload={"why": "Rejected by discharge: the exact siting quern's own "
                                      "ledger.py confessed to and #19 dissolved. New "
                                      "packages start in authoring repos now."}),
             ],
@@ -130,4 +130,4 @@ def build() -> Bom:
             links={"admits": ["the-rig-has-not-run-since-the-port"]},
         ),
     ]
-    return bom
+    return quern

@@ -1,15 +1,15 @@
 [project]
 name = "assay"
 version = "0.1.0"
-description = "Authoring repo for the assay@ bom package and home of the assay method: blind trials of intent against the real system. The product is the published artifact, not this Python."
+description = "Authoring repo for the assay@ quern package and home of the assay method: blind trials of intent against the real system. The product is the published artifact, not this Python."
 requires-python = ">=3.11"
 dependencies = [
-    "bom",
+    "quern",
 ]
 
 [tool.uv.sources]
-# Pinned by rev, always: bom is pre-1.0 and the doctrine is fork-or-republish.
-bom = { git = "https://github.com/xag/bom", rev = "50aa192" }
+# Pinned by rev, always: quern is pre-1.0 and the doctrine is fork-or-republish.
+quern = { git = "https://github.com/xag/quern", rev = "edd0d31" }
 
 [dependency-groups]
 dev = [

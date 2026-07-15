@@ -16,7 +16,7 @@ name = "assay"
 version = "0.1.0"
 source = { editable = "." }
 dependencies = [
-    { name = "bom" },
+    { name = "quern" },
 ]
 
 [package.dev-dependencies]
@@ -25,19 +25,10 @@ dev = [
 ]
 
 [package.metadata]
-requires-dist = [{ name = "bom", git = "https://github.com/xag/bom?rev=50aa192" }]
+requires-dist = [{ name = "quern", git = "https://github.com/xag/quern?rev=edd0d31" }]
 
 [package.metadata.requires-dev]
 dev = [{ name = "pytest", specifier = ">=8.0.0" }]
-
-[[package]]
-name = "bom"
-version = "0.1.0"
-source = { git = "https://github.com/xag/bom?rev=50aa192#50aa192f0bfac281bf3583b1d09266800ac795df" }
-dependencies = [
-    { name = "pydantic" },
-    { name = "wasmtime" },
-]
 
 [[package]]
 name = "colorama"
@@ -215,6 +206,15 @@ dependencies = [
 sdist = { url = "https://files.pythonhosted.org/packages/e4/47/b9efed96c114afcfa3c9d3fe98a76a1d14c74a9e266d397cf6eb64be5e01/pytest-9.1.1.tar.gz", hash = "sha256:1088fbde8f2b49d95a549a195707afa7a76a3ce9bcadc26b6d71f0ffda5fe313", size = 1636369, upload-time = "2026-06-19T10:58:32.857Z" }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/24/25/1de2678b631f5a49215c6c96fff41ba892b0a34df68d6d80292b1b48aa7f/pytest-9.1.1-py3-none-any.whl", hash = "sha256:37a86b45efb9a47a61a36449063e8e18d0cab3161329fc099eb21783169c4f0c", size = 386536, upload-time = "2026-06-19T10:58:31.347Z" },
+]
+
+[[package]]
+name = "quern"
+version = "0.1.0"
+source = { git = "https://github.com/xag/quern?rev=edd0d31#edd0d3199fd38588684daf8116e06f6bb6ebc307" }
+dependencies = [
+    { name = "pydantic" },
+    { name = "wasmtime" },
 ]
 
 [[package]]

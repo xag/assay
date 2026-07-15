@@ -4,6 +4,6 @@ __pycache__/
 .venv/
 .pytest_cache/
 
-# synced bom package cache (bom.lock is the source of truth)
-.bom/
+# synced quern package cache (quern.lock is the source of truth)
+.quern/
 node_modules/

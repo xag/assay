@@ -1,7 +1,7 @@
 """assay@ — blind trials as checkable data: does the thing survive the world?
 
-The third substrate, beside flight-recorder and bom. flight-recorder answers *what
-happened* (tapes at the nondeterminism boundary); bom answers *what must hold* (claims
+The third substrate, beside flight-recorder and quern. flight-recorder answers *what
+happened* (tapes at the nondeterminism boundary); quern answers *what must hold* (claims
 as data, rules that go red); assay answers *does it survive the world* — confronting
 intent-derived, implementation-blind expectations with the running system. The name is
 the old gate to capitalization: ore became coin only by passing the assay office, and
@@ -39,9 +39,9 @@ the evidence discipline is grounding's — one epistemic verb, no re-invention.
 
 from __future__ import annotations
 
-from bom.library import CounterExample, Package
-from bom.provenance import Quantity
-from bom.tree import KindDef, Node, PackageRef, Rule
+from quern.library import CounterExample, Package
+from quern.provenance import Quantity
+from quern.tree import KindDef, Node, PackageRef, Rule
 
 VOCABULARY = [
     KindDef(

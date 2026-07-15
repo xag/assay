@@ -37,4 +37,4 @@ Transformation optimization: registry listing → user → paying user as hypoth
 design. The funnel is a tree; each optimization is a `hypothesis` with a kill-criterion;
 pre-launch, personas walk the funnel blind; post-launch, analytics events confront it —
 analytics being flight-recorder tapes *of humans*. Not yet run; recorded here as the
-intended second consumer that keeps the extraction honest, as invest did for bom.
+intended second consumer that keeps the extraction honest, as invest did for quern.
