@@ -37,7 +37,10 @@ first messages race the bridge connect: buffer them.
 
 Proven in `xag/home@2a9713e` against the committed home widget, where it found three of
 the bugs above in one night. The generalized copy (bundle path as an argument) was then
-driven from this repo against that same real committed bundle — 7 `tree_set`
-write-backs, model context published, no error. The receipts are committed here
-(`example-payload.json`, `result.json`), and the run is the discharge of the
-`the-rig-has-not-run-since-the-port` debt in `assay/tree.py`: the node stays, grounded.
+driven from this repo against that same real committed bundle, and the run is the
+discharge of the `the-rig-has-not-run-since-the-port` debt in `assay/tree.py`: the node
+stays, grounded. The committed receipts (`example-payload.json`, `result.json`) are a
+**synthetic** twin — an invented four-room flat compiled through the home app's own
+`layout_payload`, driven through this harness against the real bundle: 4 `tree_set`
+write-backs, model context published, no error. Synthetic on purpose: a receipt is
+evidence of the *rig*, and it must not carry anyone's actual floorplan to do that job.

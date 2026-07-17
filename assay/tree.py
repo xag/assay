@@ -197,5 +197,58 @@ def build() -> Quern:
             name="No rig is offered as a stand-in while its own port is unverified",
             links={"admits": ["the-rig-has-not-run-since-the-port"]},
         ),
+
+        Node(
+            id="the-cases-name-their-apps",
+            kind="decision",
+            name="The worked cases keep their apps' names; the rig receipts go synthetic "
+                 "— the per-case exposure decisions of the public flip (#4)",
+            payload={
+                "rationale":
+                    "Taken case by case, as the flip required. defi-vacances, chores, "
+                    "home, korean-gpt-coach: all the author's own apps, and naming your "
+                    "own apps in your own method repo is the same call craft-laws "
+                    "journaled for its sightings — the cases are the evidence, and an "
+                    "anonymous case is an anecdote. Each case's text was re-read: what "
+                    "each exposes is the method's own story (a defect, a mode it forced, "
+                    "a generalization it demanded), no member name, no screenshot, no "
+                    "verbatim private string beyond UI copy already public in "
+                    "craft-laws' sightings. KEPT, all four.\n\n"
+                    "The rig receipts failed the same reading and were replaced: "
+                    "example-payload.json carried a real home's compiled floorplan — "
+                    "room dimensions, photo-evidence references, a published "
+                    "gross-internal figure traceable to a listing. A receipt is "
+                    "evidence of the RIG, not of anyone's flat, so the payload is now a "
+                    "wholly invented four-room twin compiled through the home app's own "
+                    "layout_payload and re-driven through the harness against the real "
+                    "committed bundle (4 tree_set write-backs, model context published, "
+                    "no error). The rig's provenance story is intact — the port "
+                    "verification and the three bugs stand as history in xag/home — and "
+                    "the committed evidence now exposes nothing.",
+                "consequence":
+                    "The bar for every future case and receipt: the defect is the "
+                    "content, the person never; a committed artifact must be synthetic "
+                    "or it does not enter. History note: the pre-flip history still "
+                    "contains the earlier real-floorplan receipts; the flip decision "
+                    "must weigh that (fresh-root or history rewrite) — recorded here so "
+                    "whoever takes the go/no-go sees it.",
+            },
+            children=[
+                Node(id="alt-genericize-the-cases", kind="alternative",
+                     name="Strip the app names from docs/CASES.md",
+                     payload={"why":
+                              "Destroys the evidentiary value that is the entire point "
+                              "of a worked case, and protects nothing: the apps' own "
+                              "stories are the estate's public narrative already."}),
+                Node(id="alt-keep-the-real-receipts", kind="alternative",
+                     name="Keep the real-floorplan receipts; they are only rectangles",
+                     payload={"why":
+                              "They are somebody's home, with photo references and a "
+                              "listing-traceable area figure, committed forever in a "
+                              "public repo to prove a point synthetic data proves "
+                              "equally well. The cheapest genericization in the whole "
+                              "flip, and the clearest."}),
+            ],
+        ),
     ]
     return quern

@@ -138,7 +138,8 @@ step · kind · confrontation mode · source (explicit/harvested) · status.
   run, "partition" — multi-child, multi-adult, shared device — emerged as a major kind
   the prediction had missed entirely).
 - **Merge duplicates across personas**, keeping the hardest budget and case.
-- **Flag hors-champ candidates now**: expectations demanding what the intent never
+- **Flag hors-champ candidates now** (*hors-champ*: out of frame — outside what the
+  intent promised): expectations demanding what the intent never
   promised. They are questions for the intent, not tests of the app.
 - **Freeze a held-out subset** (~1/3, balanced across kinds and modes, marked RÉSERVE)
   before any confrontation; confront it exactly once, after iterating on the working
@@ -304,8 +305,8 @@ falsifier carry an `expr` over the app's semantic alphabet (the span names an é
 package licenses)? If yes, route it to **proof mode** — the expr is decided by `tree_check`
 over the proven model (a `model/prove` artifact) and/or over refined, licensed, total tapes;
 the verdict is a `proof-verdict`, its evidence grounded by the proof/conformance artifacts
-(`provenance="proved"`, `source="artifact://<sha>"` — an owed artifact stays provisoire and
-the gate refuses it), and its `model-ref` child is mandatory: a proof is a proof *of a
+(`provenance="proved"`, `source="artifact://<sha>"` — an owed artifact stays *provisoire*,
+provisional with its verification still owed, and the gate refuses it), and its `model-ref` child is mandatory: a proof is a proof *of a
 model*, and a proof that names no model is unfalsifiable. The routing principle, plainly:
 **proof displaces execution, never judgment.** An expectation whose falsifier reduces to
 co-location of meaning, ordering of acts, or bounds on state goes to proof; comprehension,
@@ -396,7 +397,8 @@ invariant over a tape — differing only in whether the tape is scripted or live
   expectation whose verdict rests on a persona's PASS is `provisoire` and belongs in the
   verification debt.
 
-**Verdicts:** each expectation gets `pass` / `mitigé` / `fail` / `hors-champ`.
+**Verdicts:** each expectation gets `pass` / `mitigé` (mixed — part holds, part breaks) /
+`fail` / `hors-champ` (out of frame).
 `mitigé` names which half of the promise holds and which breaks — walkthroughs produce
 it constantly and flattening it to pass/fail loses the finding. `fail` → fix the app.
 `hors-champ` → a finding about the intent: extend it, journal why, regenerate scenarios
