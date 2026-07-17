@@ -79,6 +79,43 @@ def build() -> Quern:
             ],
         ),
         Node(
+            id="proof-scopes-by-kind",
+            kind="decision",
+            name="A verdict decided by proof is its own kind (proof-verdict): rule "
+                 "scoping rides the grammar's kind axis, never payload introspection",
+            payload={
+                "rationale":
+                    "a-proof-names-its-model must bind proof-decided verdicts and no "
+                    "others, and the rule grammar cannot read payload.mode — by design: "
+                    "payload is testimony, prose-shaped and free; params are the "
+                    "checkable ledger. The kind axis is the grammar's own scoping "
+                    "mechanism and every rule in this package already uses it, so a "
+                    "proof-decided verdict becomes a kind. It is honestly a different "
+                    "animal: different premise (a pinned model), different receipt (a "
+                    "content-addressed artifact), one obligation no executed verdict "
+                    "has (name your model). The cost is that a reader collecting all "
+                    "verdicts under an expectation asks for two kinds — accepted, and "
+                    "cheap next to either alternative.",
+            },
+            children=[
+                Node(id="alt-mode-as-a-param", kind="alternative",
+                     name="Make mode a param so exprs can read it",
+                     payload={"why": "Params are Quantities — grounding apparatus, "
+                                     "provenance, units. A mode is a categorical, and "
+                                     "encoding one as a number to make it readable "
+                                     "would spend the epistemic machinery on a "
+                                     "dispatch problem."}),
+                Node(id="alt-payload-reading-native", kind="alternative",
+                     name="A small native that reads payload.mode",
+                     payload={"why": "Dissolves the boundary the vocabulary rests on: "
+                                     "the day rules read payload, every prose field "
+                                     "becomes load-bearing and testimony can no longer "
+                                     "be edited for clarity without re-verifying the "
+                                     "world. Machinery for a question the kind system "
+                                     "already answers."}),
+            ],
+        ),
+        Node(
             id="rigs-catch-what-reasoning-cannot",
             kind="hypothesis",
             name="Casting machine counterparties from reference implementations catches "
