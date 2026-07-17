@@ -1,0 +1,10 @@
+{
+  "name": "assay-rig-mcp-app-host",
+  "private": true,
+  "type": "module",
+  "description": "Stand-in for an MCP-App HOST, built from the SDK's own AppBridge — never a hand-rolled fake. Drives the real committed widget bundle: node host-harness.mjs <bundle.html> < payload.json",
+  "dependencies": {
+    "@modelcontextprotocol/ext-apps": "^1.7.4",
+    "jsdom": "^29.1.1"
+  }
+}

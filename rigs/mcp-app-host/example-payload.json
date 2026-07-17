@@ -1,0 +1,595 @@
+{
+ "name": "demo-flat",
+ "rooms": [],
+ "pieces": [],
+ "solve": {
+  "rooms": [
+   {
+    "key": "home/living",
+    "w": 5000,
+    "d": 4000,
+    "desired": [
+     0,
+     0
+    ],
+    "on_facade": false
+   },
+   {
+    "key": "home/bed-a",
+    "w": 3500,
+    "d": 3000,
+    "desired": [
+     5000,
+     0
+    ],
+    "on_facade": false
+   },
+   {
+    "key": "home/bath",
+    "w": 2000,
+    "d": 2000,
+    "desired": [
+     8500,
+     0
+    ],
+    "on_facade": false
+   },
+   {
+    "key": "home/hall",
+    "w": 5000,
+    "d": 1200,
+    "desired": [
+     0,
+     4000
+    ],
+    "on_facade": false
+   }
+  ],
+  "constraints": [
+   {
+    "key": "evidence/p1-living-hall",
+    "spec": {
+     "kind": "connects",
+     "a": "home/living",
+     "b": "home/hall",
+     "need": 1600.0
+    },
+    "meta": {
+     "kind": "connects",
+     "source": "photo",
+     "ref": "photo 1: the wide opening",
+     "confidence": null,
+     "rank": [
+      2,
+      1.0
+     ]
+    },
+    "disjuncts": [
+     [
+      [
+       "x:home/hall",
+       "x:home/living",
+       5000
+      ],
+      [
+       "x:home/living",
+       "x:home/hall",
+       -5000
+      ],
+      [
+       "y:home/hall",
+       "y:home/living",
+       2400.0
+      ],
+      [
+       "y:home/living",
+       "y:home/hall",
+       -400.0
+      ]
+     ],
+     [
+      [
+       "x:home/living",
+       "x:home/hall",
+       5000
+      ],
+      [
+       "x:home/hall",
+       "x:home/living",
+       -5000
+      ],
+      [
+       "y:home/living",
+       "y:home/hall",
+       -400.0
+      ],
+      [
+       "y:home/hall",
+       "y:home/living",
+       2400.0
+      ]
+     ],
+     [
+      [
+       "y:home/hall",
+       "y:home/living",
+       4000
+      ],
+      [
+       "y:home/living",
+       "y:home/hall",
+       -4000
+      ],
+      [
+       "x:home/hall",
+       "x:home/living",
+       3400.0
+      ],
+      [
+       "x:home/living",
+       "x:home/hall",
+       3400.0
+      ]
+     ],
+     [
+      [
+       "y:home/living",
+       "y:home/hall",
+       1200
+      ],
+      [
+       "y:home/hall",
+       "y:home/living",
+       -1200
+      ],
+      [
+       "x:home/living",
+       "x:home/hall",
+       3400.0
+      ],
+      [
+       "x:home/hall",
+       "x:home/living",
+       3400.0
+      ]
+     ]
+    ]
+   },
+   {
+    "key": "evidence/p2-bed-hall",
+    "spec": {
+     "kind": "connects",
+     "a": "home/bed-a",
+     "b": "home/hall",
+     "need": 800.0
+    },
+    "meta": {
+     "kind": "connects",
+     "source": "photo",
+     "ref": "photo 2: the bedroom door",
+     "confidence": null,
+     "rank": [
+      2,
+      1.0
+     ]
+    },
+    "disjuncts": [
+     [
+      [
+       "x:home/hall",
+       "x:home/bed-a",
+       3500
+      ],
+      [
+       "x:home/bed-a",
+       "x:home/hall",
+       -3500
+      ],
+      [
+       "y:home/hall",
+       "y:home/bed-a",
+       2200.0
+      ],
+      [
+       "y:home/bed-a",
+       "y:home/hall",
+       400.0
+      ]
+     ],
+     [
+      [
+       "x:home/bed-a",
+       "x:home/hall",
+       5000
+      ],
+      [
+       "x:home/hall",
+       "x:home/bed-a",
+       -5000
+      ],
+      [
+       "y:home/bed-a",
+       "y:home/hall",
+       400.0
+      ],
+      [
+       "y:home/hall",
+       "y:home/bed-a",
+       2200.0
+      ]
+     ],
+     [
+      [
+       "y:home/hall",
+       "y:home/bed-a",
+       3000
+      ],
+      [
+       "y:home/bed-a",
+       "y:home/hall",
+       -3000
+      ],
+      [
+       "x:home/hall",
+       "x:home/bed-a",
+       2700.0
+      ],
+      [
+       "x:home/bed-a",
+       "x:home/hall",
+       4200.0
+      ]
+     ],
+     [
+      [
+       "y:home/bed-a",
+       "y:home/hall",
+       1200
+      ],
+      [
+       "y:home/hall",
+       "y:home/bed-a",
+       -1200
+      ],
+      [
+       "x:home/bed-a",
+       "x:home/hall",
+       4200.0
+      ],
+      [
+       "x:home/hall",
+       "x:home/bed-a",
+       2700.0
+      ]
+     ]
+    ]
+   },
+   {
+    "key": "evidence/p3-facade",
+    "spec": {
+     "kind": "same_facade",
+     "rooms": [
+      "home/living",
+      "home/bed-a"
+     ],
+     "peers": [
+      "home/living",
+      "home/bed-a",
+      "home/bath",
+      "home/hall"
+     ]
+    },
+    "meta": {
+     "kind": "same_facade",
+     "source": "photo",
+     "ref": "photo 3: the bay and the bedroom window on one outside wall",
+     "confidence": null,
+     "rank": [
+      2,
+      1.0
+     ]
+    },
+    "disjuncts": [
+     [
+      [
+       "y:home/living",
+       "Fy0",
+       0.0
+      ],
+      [
+       "Fy0",
+       "y:home/living",
+       0.0
+      ],
+      [
+       "y:home/bed-a",
+       "Fy0",
+       0.0
+      ],
+      [
+       "Fy0",
+       "y:home/bed-a",
+       0.0
+      ],
+      [
+       "Fy0",
+       "y:home/living",
+       0.0
+      ],
+      [
+       "Fy0",
+       "y:home/bed-a",
+       0.0
+      ],
+      [
+       "Fy0",
+       "y:home/bath",
+       0.0
+      ],
+      [
+       "Fy0",
+       "y:home/hall",
+       0.0
+      ]
+     ],
+     [
+      [
+       "y:home/living",
+       "Fy1",
+       -4000
+      ],
+      [
+       "Fy1",
+       "y:home/living",
+       4000
+      ],
+      [
+       "y:home/bed-a",
+       "Fy1",
+       -3000
+      ],
+      [
+       "Fy1",
+       "y:home/bed-a",
+       3000
+      ],
+      [
+       "y:home/living",
+       "Fy1",
+       -4000
+      ],
+      [
+       "y:home/bed-a",
+       "Fy1",
+       -3000
+      ],
+      [
+       "y:home/bath",
+       "Fy1",
+       -2000
+      ],
+      [
+       "y:home/hall",
+       "Fy1",
+       -1200
+      ]
+     ],
+     [
+      [
+       "x:home/living",
+       "Fx0",
+       0.0
+      ],
+      [
+       "Fx0",
+       "x:home/living",
+       0.0
+      ],
+      [
+       "x:home/bed-a",
+       "Fx0",
+       0.0
+      ],
+      [
+       "Fx0",
+       "x:home/bed-a",
+       0.0
+      ],
+      [
+       "Fx0",
+       "x:home/living",
+       0.0
+      ],
+      [
+       "Fx0",
+       "x:home/bed-a",
+       0.0
+      ],
+      [
+       "Fx0",
+       "x:home/bath",
+       0.0
+      ],
+      [
+       "Fx0",
+       "x:home/hall",
+       0.0
+      ]
+     ],
+     [
+      [
+       "x:home/living",
+       "Fx1",
+       -5000
+      ],
+      [
+       "Fx1",
+       "x:home/living",
+       5000
+      ],
+      [
+       "x:home/bed-a",
+       "Fx1",
+       -3500
+      ],
+      [
+       "Fx1",
+       "x:home/bed-a",
+       3500
+      ],
+      [
+       "x:home/living",
+       "Fx1",
+       -5000
+      ],
+      [
+       "x:home/bed-a",
+       "Fx1",
+       -3500
+      ],
+      [
+       "x:home/bath",
+       "Fx1",
+       -2000
+      ],
+      [
+       "x:home/hall",
+       "Fx1",
+       -5000
+      ]
+     ]
+    ]
+   },
+   {
+    "key": "evidence/p4-gabarit",
+    "spec": {
+     "kind": "const",
+     "value": true
+    },
+    "meta": {
+     "kind": "scale_anchor",
+     "source": "photo",
+     "ref": "the bedroom door is a standard leaf",
+     "confidence": null,
+     "rank": [
+      2,
+      1.0
+     ]
+    },
+    "disjuncts": []
+   },
+   {
+    "key": "evidence/t1-bath-hall",
+    "spec": {
+     "kind": "connects",
+     "a": "home/bath",
+     "b": "home/hall",
+     "need": 700.0
+    },
+    "meta": {
+     "kind": "connects",
+     "source": "testimony",
+     "ref": "the bath is off the hall",
+     "confidence": null,
+     "rank": [
+      3,
+      1.0
+     ]
+    },
+    "disjuncts": [
+     [
+      [
+       "x:home/hall",
+       "x:home/bath",
+       2000
+      ],
+      [
+       "x:home/bath",
+       "x:home/hall",
+       -2000
+      ],
+      [
+       "y:home/hall",
+       "y:home/bath",
+       1300.0
+      ],
+      [
+       "y:home/bath",
+       "y:home/hall",
+       500.0
+      ]
+     ],
+     [
+      [
+       "x:home/bath",
+       "x:home/hall",
+       5000
+      ],
+      [
+       "x:home/hall",
+       "x:home/bath",
+       -5000
+      ],
+      [
+       "y:home/bath",
+       "y:home/hall",
+       500.0
+      ],
+      [
+       "y:home/hall",
+       "y:home/bath",
+       1300.0
+      ]
+     ],
+     [
+      [
+       "y:home/hall",
+       "y:home/bath",
+       2000
+      ],
+      [
+       "y:home/bath",
+       "y:home/hall",
+       -2000
+      ],
+      [
+       "x:home/hall",
+       "x:home/bath",
+       1300.0
+      ],
+      [
+       "x:home/bath",
+       "x:home/hall",
+       4300.0
+      ]
+     ],
+     [
+      [
+       "y:home/bath",
+       "y:home/hall",
+       1200
+      ],
+      [
+       "y:home/hall",
+       "y:home/bath",
+       -1200
+      ],
+      [
+       "x:home/bath",
+       "x:home/hall",
+       4300.0
+      ],
+      [
+       "x:home/hall",
+       "x:home/bath",
+       1300.0
+      ]
+     ]
+    ]
+   }
+  ],
+  "budget": 1500000,
+  "stable": true,
+  "timeout": 120.0
+ }
+}
