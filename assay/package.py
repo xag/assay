@@ -22,10 +22,10 @@ What hardened into RULES here are the method's four scars, each earned in a real
   fake would have found three bugs in itself.
 - **a verdict carries evidence** — a count of receipts (tapes, screenshots, recorded
   interactions), as a grounding Quantity: `grounded` when the receipts were verified,
-  ungrounded while the verdict is provisoire. Falsified verdicts are kept, never
+  ungrounded while the verdict is provisional. Falsified verdicts are kept, never
   deleted — a record that forgets what it got wrong will hold it again — and a gate
   (ledger@'s `nothing-unsound-passes-a-gate`) can refuse a release resting on
-  provisoire verdicts without a single new rule.
+  provisional verdicts without a single new rule.
 - **a proof names its model** — the fifth confrontation mode. An expectation whose
   falsifier has graduated to an `expr` over the semantic alphabet can be discharged by
   proof and refinement instead of executed: decided by `tree_check` over a proven model
@@ -33,7 +33,7 @@ What hardened into RULES here are the method's four scars, each earned in a real
   proof-verdict that does not pin which model — name, version, digest, artifact — is
   unfalsifiable. Its evidence is the artifact, grounded by épure's discipline
   (`provenance="proved"`, `source="artifact://<sha>"`); an owed artifact stays
-  provisoire and the same gate refuses it.
+  provisional and the same gate refuses it.
 
 Casting doctrine, carried by the vocabulary: a HUMAN counterparty is simulated by an
 agent, explicitly and never silently; a MACHINE counterparty is rigged from the
@@ -98,10 +98,10 @@ VOCABULARY = [
     ),
     KindDef(
         kind="verdict",
-        description="The outcome of confronting one expectation once: pass, mitigé, "
-        "fail or hors-champ, with the mode that produced it (walkthrough, flight, "
+        description="The outcome of confronting one expectation once: pass, mixed, "
+        "fail or out-of-scope, with the mode that produced it (walkthrough, flight, "
         "rendered-surface reading, monitor). Carries `evidence`: a count of receipts, "
-        "grounded when they were verified, ungrounded while the verdict is provisoire. "
+        "grounded when they were verified, ungrounded while the verdict is provisional. "
         "Verdicts are KEPT, falsified ones above all — deleting a failed verdict is "
         "how a record comes to hold the same belief twice. A verdict decided by proof "
         "is not one of these: it is a `proof-verdict`, a kind of its own, because its "
@@ -113,12 +113,12 @@ VOCABULARY = [
         "refinement instead of execution: the falsifier's `expr` decided by "
         "`tree_check` over the proven model and/or over refined, licensed, total "
         "tapes. Same outcomes, same evidence discipline (`provenance=\"proved\"`, "
-        "`source=\"artifact://<sha>\"`; owed artifact = provisoire, and the gate "
+        "`source=\"artifact://<sha>\"`; owed artifact = provisional, and the gate "
         "refuses it), same keeping of falsified verdicts. Two further obligations of "
         "its own: it names the model it is a proof of (a `model-ref` child — "
         "unfalsifiable otherwise), and it never displaces the blind-trial discipline "
-        "— proof relocates risk into specification, so the personas, the RÉSERVE and "
-        "the critic interrogate the model exactly as they interrogate the "
+        "— proof relocates risk into specification, so the personas, the held-out "
+        "set and the critic interrogate the model exactly as they interrogate the "
         "realization. What proof displaces is execution.",
     ),
     KindDef(
@@ -177,7 +177,7 @@ RULES = [
         name="a-verdict-carries-evidence",
         kind="verdict",
         description="A verdict with no receipts is an opinion filed under a stronger "
-        "word. The count may be provisoire (ungrounded) while verification is owed — "
+        "word. The count may be provisional (ungrounded) while verification is owed — "
         "that is honest and a gate can see it — but a verdict with nothing behind it "
         "at all goes red here.",
         expr="evidence >= 1",
@@ -210,7 +210,7 @@ RULES = [
 
 def _receipts(count: float, verified: bool, source: str) -> Quantity:
     return Quantity(value=count, unit="receipt", grounded=verified,
-                    provenance="verified" if verified else "provisoire", source=source)
+                    provenance="verified" if verified else "provisional", source=source)
 
 
 EXAMPLES = [
@@ -365,15 +365,15 @@ COUNTER_EXAMPLES = [
 
 ASSAY_PACKAGE = Package(
     name="assay",
-    version="0.2.0",
+    version="0.3.0",
     description="Blind trials as checkable data: intent-derived, implementation-blind "
                 "expectations confronted with the running system. Personas cast the "
                 "counterparty (simulated humans, rigged machines, nobody for platform "
                 "guarantees); scenarios record what they were permitted to see; "
                 "expectations carry their falsifiers; verdicts carry their receipts "
                 "and are kept, falsified ones above all. The gate that refuses a "
-                "release resting on provisoire verdicts is ledger@'s — a trial "
-                "without a ledger has nowhere to keep what it learned. New in 0.2.0, "
+                "release resting on provisional verdicts is ledger@'s — a trial "
+                "without a ledger has nowhere to keep what it learned. 0.2.0 added "
                 "the fifth confrontation mode: a falsifier may graduate to an expr "
                 "over the semantic alphabet, and the expectation be discharged by "
                 "proof and refinement instead of executed — a proof-verdict, naming "
@@ -382,8 +382,11 @@ ASSAY_PACKAGE = Package(
                 "specification — a system can perfectly refine a proven model that "
                 "is wrong about the job. Proof-verdicts therefore never displace the "
                 "blind-trial discipline; they displace execution. The personas, the "
-                "RÉSERVE and the critic now interrogate the model as much as the "
-                "realization.",
+                "held-out set and the critic interrogate the model as much as the "
+                "realization. 0.3.0 changes no kind, rule or example: it renames the "
+                "working vocabulary to plain English — mixed, out-of-scope, "
+                "provisional, the held-out set — because a generic library must not "
+                "make an adopter learn French to read a verdict.",
     publisher="xag/assay",
     requires=[PackageRef(name="ledger", version="0.1.0")],  # exact, by doctrine
     vocabulary=VOCABULARY,

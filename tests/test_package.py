@@ -38,9 +38,9 @@ def test_the_authored_package_is_the_published_artifact():
     assert package_digest(ASSAY_PACKAGE) == pinned.sha256
 
 
-def test_a_provisoire_verdict_is_visible_to_a_gate(library):
+def test_a_provisional_verdict_is_visible_to_a_gate(library):
     """The receipts discipline composes with ledger@'s gate without a single new rule:
-    a verdict whose evidence is ungrounded (provisoire) cannot pass a release gate that
+    a verdict whose evidence is ungrounded (provisional) cannot pass a release gate that
     admits it — exactly as a debt cannot."""
     from quern import Node, Quantity
     library.publish(ASSAY_PACKAGE, {})
@@ -49,7 +49,7 @@ def test_a_provisoire_verdict_is_visible_to_a_gate(library):
     tree.root.children = [
         Node(id="v", kind="verdict", name="pass, pending receipt verification",
              params={"evidence": Quantity(value=1, unit="receipt", grounded=False,
-                                          provenance="provisoire")}),
+                                          provenance="provisional")}),
         Node(id="release", kind="gate", name="ship it",
              links={"admits": ["v"]}),
     ]
@@ -59,7 +59,7 @@ def test_a_provisoire_verdict_is_visible_to_a_gate(library):
 
 
 def test_an_owed_proof_artifact_is_refused_at_the_gate(library):
-    """The proof mode inherits the provisoire discipline unchanged: a proof-verdict
+    """The proof mode inherits the provisional discipline unchanged: a proof-verdict
     whose artifact is owed carries ungrounded evidence, and the same gate refuses the
     release it would have vouched for. The proof rules themselves stay green — naming
     your model and carrying evidence are satisfied; it is the SOUNDNESS the gate wants."""
@@ -70,7 +70,7 @@ def test_an_owed_proof_artifact_is_refused_at_the_gate(library):
     tree.root.children = [
         Node(id="pv", kind="proof-verdict", name="pass, artifact owed",
              params={"evidence": Quantity(value=1, unit="artifact", grounded=False,
-                                          provenance="provisoire")},
+                                          provenance="provisional")},
              children=[Node(id="m", kind="model-ref", name="the model, pinned",
                             payload={"name": "some-model", "version": "0.1.0",
                                      "sha256": "pinned", "artifact": "owed"})]),

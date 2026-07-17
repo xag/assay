@@ -126,7 +126,7 @@ def build() -> Quern:
                     "chosen, and a model-carrying app gets its storylines compiled "
                     "against the model before the realization exists. Kept inside the "
                     "method, proof inherits its disciplines for free: verdicts kept "
-                    "(falsified ones above all), RÉSERVE, blindness as a property of "
+                    "(falsified ones above all), the held-out set, blindness as a property of "
                     "inputs (the orchestrator owns the compilation), and the critic — "
                     "whose brief grows the one question only the method can ask: is the "
                     "model's abstraction of this promise the promise the persona was "
@@ -248,6 +248,54 @@ def build() -> Quern:
                               "public repo to prove a point synthetic data proves "
                               "equally well. The cheapest genericization in the whole "
                               "flip, and the clearest."}),
+            ],
+        ),
+
+        Node(
+            id="the-vocabulary-speaks-english",
+            kind="decision",
+            name="The working vocabulary is English from 0.3.0: a generic library must "
+                 "not make an adopter learn French to read a verdict",
+            payload={
+                "rationale":
+                    "The method's terms were born in defi-vacances — a French app, "
+                    "trialed in French — and travelled into the generic package as its "
+                    "voice: mitigé, hors-champ, provisoire, RÉSERVE, ATTENTE:, "
+                    "trouvailles. The charter (assay-office#4) named this a pre-pull "
+                    "debt: cheap while the audience is zero, expensive after the first "
+                    "outside pin. Paid in 0.3.0, before any external adopter: mixed, "
+                    "out-of-scope, provisional, the held-out set, EXPECT:, findings "
+                    "(with unverified and 'not confronted' in the skill). 0.2.0 stays "
+                    "immutable; 0.3.0 changes no kind, rule or example — only the "
+                    "words — and the consumers repinned the same day. The French that "
+                    "STAYS is content under trial, not method vocabulary: the "
+                    "localisation case's defects are French strings, and the worked "
+                    "case that Englished a French joke would be destroying its own "
+                    "evidence.",
+                "consequence":
+                    "provenance='provisoire' becomes provenance='provisional' — a "
+                    "machine-read value, so chores' verdicts migrate with the repin, "
+                    "not just its prose. CASES.md keeps one clause of origin: the "
+                    "vocabulary was born in French, with the practice, and Englished "
+                    "here.",
+            },
+            children=[
+                Node(id="alt-french-as-identity", kind="alternative",
+                     name="Keep the French as the method's identity, glossed once",
+                     payload={"why":
+                              "The README's own old line — and a toll, not a voice: "
+                              "identity that taxes every stranger at their first "
+                              "verdict table selects for readers who already know us, "
+                              "the opposite of what a generic library is for. The "
+                              "estate's rule is coined vocabulary only after it has "
+                              "been seen working; these words never earned that."}),
+                Node(id="alt-gloss-harder", kind="alternative",
+                     name="Keep the terms, gloss at every first use",
+                     payload={"why":
+                              "Tried — phase 4's readiness pass added the glosses — "
+                              "and the toll survived it: every table, receipt and "
+                              "report still reads foreign first, and a gloss is a "
+                              "patch on a word that needed replacing."}),
             ],
         ),
 

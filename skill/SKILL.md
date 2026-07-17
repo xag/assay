@@ -109,7 +109,7 @@ instructions, the full intent text inline, and the output path. It must be told:
 - Each persona gets a **storyline**: how the need arises → how they discover such a thing
   → first contact → life over the weeks → the precise moments where it could break.
   Realistic, detailed, narrative — names, places, times, everyday objects. Embed
-  expectations inline, marked `ATTENTE:` — each one an observable outcome plus an
+  expectations inline, marked `EXPECT:` — each one an observable outcome plus an
   effort/time budget where sensible.
 - Write the output to `intents\<slug>.scenarios.md`, starting with a note that it was
   generated blind from the intent, and return a one-paragraph summary.
@@ -123,7 +123,7 @@ Expectations arise **at each step of a personal story** — need, discovery, fir
 contact, daily life, disruptions, endings. Anchor every entry to its persona and story
 step. Two passes:
 
-1. Lift the explicit `ATTENTE:` lines.
+1. Lift the explicit `EXPECT:` lines.
 2. Re-read each storyline *including its "where it can break" notes* and harvest the
    implicit expectations — concrete abilities ("invite the other parent through the
    channels the family already uses"), qualities ("doesn't smell like school"), absences
@@ -138,10 +138,9 @@ step · kind · confrontation mode · source (explicit/harvested) · status.
   run, "partition" — multi-child, multi-adult, shared device — emerged as a major kind
   the prediction had missed entirely).
 - **Merge duplicates across personas**, keeping the hardest budget and case.
-- **Flag hors-champ candidates now** (*hors-champ*: out of frame — outside what the
-  intent promised): expectations demanding what the intent never
+- **Flag out-of-scope candidates now**: expectations demanding what the intent never
   promised. They are questions for the intent, not tests of the app.
-- **Freeze a held-out subset** (~1/3, balanced across kinds and modes, marked RÉSERVE)
+- **Freeze a held-out subset** (~1/3, balanced across kinds and modes, marked held-out)
   before any confrontation; confront it exactly once, after iterating on the working
   set — it measures overfitting to the generated personas. Outcome/monitor entries are
   exempt (they only bind to real usage).
@@ -305,8 +304,8 @@ falsifier carry an `expr` over the app's semantic alphabet (the span names an é
 package licenses)? If yes, route it to **proof mode** — the expr is decided by `tree_check`
 over the proven model (a `model/prove` artifact) and/or over refined, licensed, total tapes;
 the verdict is a `proof-verdict`, its evidence grounded by the proof/conformance artifacts
-(`provenance="proved"`, `source="artifact://<sha>"` — an owed artifact stays *provisoire*,
-provisional with its verification still owed, and the gate refuses it), and its `model-ref` child is mandatory: a proof is a proof *of a
+(`provenance="proved"`, `source="artifact://<sha>"` — an owed artifact stays *provisional*,
+its verification still owed, and the gate refuses it), and its `model-ref` child is mandatory: a proof is a proof *of a
 model*, and a proof that names no model is unfalsifiable. The routing principle, plainly:
 **proof displaces execution, never judgment.** An expectation whose falsifier reduces to
 co-location of meaning, ordering of acts, or bounds on state goes to proof; comprehension,
@@ -351,7 +350,7 @@ invariant over a tape — differing only in whether the tape is scripted or live
   do on which hardware, what nothing ever tells the user) — so a single-prompt agent
   doesn't need interactivity to live several weeks. Ask for: step-by-step narration with
   honest timing, one verdict per assigned expectation with evidence, and a ranked
-  "trouvailles" list. Run the personas in parallel; convergence between independent
+  findings list. Run the personas in parallel; convergence between independent
   personas — and between personas and flights — is the strongest signal in the method.
   **A transcribed surface is a fake, and the fake corollary applies**: verify every
   world-fact against the real running app before feeding it to personas — click the
@@ -363,7 +362,7 @@ invariant over a tape — differing only in whether the tape is scripted or live
   simulated one.
   **World-facts need receipts**: every fact handed to a persona is backed by an
   observation (a tape, a recorded interaction, a screenshot) or explicitly labeled
-  `non-vérifié` — and a verdict resting on an unverified fact is `provisoire`, listed
+  `unverified` — and a verdict resting on an unverified fact is `provisional`, listed
   as verification debt in the report.
   **A PASS must name whose job it proves, in which cell.** Empirical results outside
   the confrontation matrix (the framework's default browser, the developer's desktop)
@@ -394,14 +393,14 @@ invariant over a tape — differing only in whether the tape is scripted or live
   persona is charitable and will do the job through an awkward screen, returning PASS over a
   defect. Never a flight: a tape records values, and prose is not a value. Render every
   surface × state × locale, dump the text, and have a competent reader read it. A craft
-  expectation whose verdict rests on a persona's PASS is `provisoire` and belongs in the
+  expectation whose verdict rests on a persona's PASS is `provisional` and belongs in the
   verification debt.
 
-**Verdicts:** each expectation gets `pass` / `mitigé` (mixed — part holds, part breaks) /
-`fail` / `hors-champ` (out of frame).
-`mitigé` names which half of the promise holds and which breaks — walkthroughs produce
+**Verdicts:** each expectation gets `pass` / `mixed` (part of the promise holds, part
+breaks) / `fail` / `out-of-scope` (the intent never promised it).
+`mixed` names which half of the promise holds and which breaks — walkthroughs produce
 it constantly and flattening it to pass/fail loses the finding. `fail` → fix the app.
-`hors-champ` → a finding about the intent: extend it, journal why, regenerate scenarios
+`out-of-scope` → a finding about the intent: extend it, journal why, regenerate scenarios
 from the extended part only. The verdict table's `mode` column admits `proof`; evidence
 for a proof-mode row is the artifact address (`artifact://<sha>`), not a receipt count —
 the artifact is the receipt, and it is one a later reader re-runs.
@@ -410,12 +409,12 @@ the artifact is the receipt, and it is one a later reader re-runs.
 (they describe the realization); the intents directory stays verdict-free. Report shape
 that worked: verdict table per mode with one-line evidence → transverse findings ranked
 by convergence → **new expectations the confrontation itself revealed** (append to the
-expectations ledger, source: `confrontation`) → synthesis with ranked chantiers.
+expectations ledger, source: `confrontation`) → synthesis with ranked workstreams.
 Undeclared nondeterminism doors discovered during confrontation (e.g. a clock decision
 living client-side, outside the recorded boundary) are method findings — journal them
 with the boundary.
 
-**After the fixes:** re-confront the working set, *then* unfreeze the RÉSERVE for its
+**After the fixes:** re-confront the working set, *then* unfreeze the held-out set for its
 single confrontation (the overfitting measure), then close the loop on real traces.
 
 ## Confronting the model (design-time assay)
@@ -435,7 +434,7 @@ The disciplines carry over unchanged, and saying so explicitly is the point:
 - **Verdicts against the model are labelled as such** and never substitute for
   confrontation of the realization. The model can be wrong about the world — and with the
   mechanical questions gone to proof, that is now the *main* thing the trial is hunting.
-- **RÉSERVE and the adversarial critic apply.** The critic's brief gains a question for
+- **The held-out set and the adversarial critic apply.** The critic's brief gains a question for
   exactly this mode — see step 5.
 
 ## Orchestration (multi-agent runs)
@@ -448,8 +447,8 @@ the code-aware agent prepares self-contained walkthrough *packs* (verified surfa
 world-facts with receipts + output path); the orchestrator spawns one fresh blind agent
 per pack; a step-5 critic reviews; the code-aware agent integrates. Two integration
 rules, both violated once: **verdict tables must carry the persona's verdict verbatim**
-(requalifying needs a stated receipt — integrators soften FAILs into MITIGÉs when left
-alone), and **everything not confronted is listed by name** in a "non confronté"
+(requalifying needs a stated receipt — integrators soften FAIL into MIXED when left
+alone), and **everything not confronted is listed by name** in a "not confronted"
 section — an absent verdict otherwise reads as covered. That section also lists, by
 name, every expectation that *could* carry an expr but doesn't — an un-mechanized
 falsifier is visible debt, not silent prose.

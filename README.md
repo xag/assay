@@ -30,12 +30,11 @@ app and telling you what it was like; a **flight** is a proof obligation with a
 storyline attached — if it stops replaying or refining, a mechanical diagnostic names
 the first divergence, and nobody's opinion is involved.
 
-Verdict vocabulary (part of the method's identity, glossed once): `pass` / `mitigé`
-(mixed — part of the promise holds, part breaks) / `fail` / `hors-champ` (out of frame —
-the intent never promised it, so the finding is about the intent). A verdict awaiting
-its evidence is `provisoire` (provisional), and a gate refuses releases resting on one.
-The `RÉSERVE` is a held-out third of the expectations, confronted exactly once at the
-end, to measure overfitting to the generated personas.
+Verdict vocabulary: `pass` / `mixed` (part of the promise holds, part breaks) /
+`fail` / `out-of-scope` (the intent never promised it, so the finding is about the
+intent). A verdict awaiting its evidence is `provisional`, and a gate refuses releases
+resting on one. The held-out set is a third of the expectations, confronted exactly
+once at the end, to measure overfitting to the generated personas.
 
 ## The three substrates
 
@@ -62,7 +61,7 @@ only by passing the assay office. Nothing becomes capital without surviving a tr
   the reference implementation it is built from (an uninstrumented fake is relocated
   guessing); a verdict carries its receipts, and falsified verdicts are kept. Published
   to the registry, pinned by digest. Requires `ledger@`: a trial without a ledger has
-  nowhere to keep what it learned, and a release gate refuses provisoire verdicts with
+  nowhere to keep what it learned, and a release gate refuses provisional verdicts with
   no new machinery at all.
 - **`skill/SKILL.md`** — the procedure: intent (job altitude) → blind scenario
   generation → falsifiable expectations + triggered craft laws → **cast** → confront
