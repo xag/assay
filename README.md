@@ -39,7 +39,11 @@ end, to measure overfitting to the generated personas.
 
 ## The three substrates
 
-The third substrate, beside flight-recorder and quern:
+assay is the third of three tools that work together.
+[flight-recorder](https://github.com/xag/flight-recorder) records what the outside world
+told your code and replays it bit for bit — one recording is a *tape*.
+[quern](https://github.com/xag/quern) keeps rules and vocabulary as data your program can
+check, published as versioned packages — "the registry" below is its package registry.
 
 | substrate | question it answers | holds |
 |---|---|---|
