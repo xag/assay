@@ -2,8 +2,8 @@
   "packages": [
     {
       "name": "assay",
-      "version": "0.1.0",
-      "sha256": "1beb091143bc67cf2e9bd28f1855733e73e80bdd18108598a001260a2c21a961"
+      "version": "0.2.0",
+      "sha256": "09541a96e57be9b73467f6d3c29312e11b31e9883f67382405eb9c123c404caf"
     },
     {
       "name": "ledger",

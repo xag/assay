@@ -26,6 +26,14 @@ What hardened into RULES here are the method's four scars, each earned in a real
   deleted — a record that forgets what it got wrong will hold it again — and a gate
   (ledger@'s `nothing-unsound-passes-a-gate`) can refuse a release resting on
   provisoire verdicts without a single new rule.
+- **a proof names its model** — the fifth confrontation mode. An expectation whose
+  falsifier has graduated to an `expr` over the semantic alphabet can be discharged by
+  proof and refinement instead of executed: decided by `tree_check` over a proven model
+  and over refined, licensed, total tapes. But a proof is a proof *of a model*, and a
+  proof-verdict that does not pin which model — name, version, digest, artifact — is
+  unfalsifiable. Its evidence is the artifact, grounded by épure's discipline
+  (`provenance="proved"`, `source="artifact://<sha>"`); an owed artifact stays
+  provisoire and the same gate refuses it.
 
 Casting doctrine, carried by the vocabulary: a HUMAN counterparty is simulated by an
 agent, explicitly and never silently; a MACHINE counterparty is rigged from the
@@ -80,7 +88,13 @@ VOCABULARY = [
         description="The observation that would fail the expectation above it — stated "
         "so a verdict can be `fail` and not merely 'I did not like it'. The same shape "
         "a craft law's falsifier takes, on purpose: expectations may cite laws, and "
-        "both must be violable observably.",
+        "both must be violable observably. Payload `{claim, note, expr?}`: `claim` is "
+        "the prose and is mandatory; `expr`, when the falsifier has graduated, is the "
+        "same observation in the rule grammar, evaluated over an imported scenario "
+        "subtree (span names are node kinds; the trace verbs apply). The prose is the "
+        "meaning and the expr its mechanization — when they disagree, the prose wins "
+        "and the expr is a bug. The graduation ledger@'s `falsification.expr` already "
+        "names, taken here.",
     ),
     KindDef(
         kind="verdict",
@@ -89,7 +103,31 @@ VOCABULARY = [
         "rendered-surface reading, monitor). Carries `evidence`: a count of receipts, "
         "grounded when they were verified, ungrounded while the verdict is provisoire. "
         "Verdicts are KEPT, falsified ones above all — deleting a failed verdict is "
-        "how a record comes to hold the same belief twice.",
+        "how a record comes to hold the same belief twice. A verdict decided by proof "
+        "is not one of these: it is a `proof-verdict`, a kind of its own, because its "
+        "obligations differ and rules scope by kind.",
+    ),
+    KindDef(
+        kind="proof-verdict",
+        description="The outcome of discharging one expectation by proof and "
+        "refinement instead of execution: the falsifier's `expr` decided by "
+        "`tree_check` over the proven model and/or over refined, licensed, total "
+        "tapes. Same outcomes, same evidence discipline (`provenance=\"proved\"`, "
+        "`source=\"artifact://<sha>\"`; owed artifact = provisoire, and the gate "
+        "refuses it), same keeping of falsified verdicts. Two further obligations of "
+        "its own: it names the model it is a proof of (a `model-ref` child — "
+        "unfalsifiable otherwise), and it never displaces the blind-trial discipline "
+        "— proof relocates risk into specification, so the personas, the RÉSERVE and "
+        "the critic interrogate the model exactly as they interrogate the "
+        "realization. What proof displaces is execution.",
+    ),
+    KindDef(
+        kind="model-ref",
+        description="Which model a proof-verdict is a proof of: payload "
+        "`{name, version, sha256, artifact}` — the model package pin plus the "
+        "content address of the proof artifact. A proof that names no model is a "
+        "conclusion with no premise on record; the pin is what lets a later reader "
+        "re-run the confrontation against the exact drawing it was decided over.",
     ),
     KindDef(
         kind="stand-in",
@@ -144,6 +182,25 @@ RULES = [
         "at all goes red here.",
         expr="evidence >= 1",
     ),
+    Rule(
+        name="a-proof-names-its-model",
+        kind="proof-verdict",
+        description="A proof is a proof OF A MODEL, and a proof-verdict that does not "
+        "pin which one — name, version, digest, artifact — is unfalsifiable: nobody "
+        "can re-run the confrontation, and nobody can say the model it leaned on was "
+        "wrong. The house pattern of a-stand-in-names-its-source-of-truth, applied to "
+        "the premise instead of the counterparty.",
+        expr="len(nodes('model-ref', self)) >= 1",
+    ),
+    Rule(
+        name="a-proof-verdict-carries-evidence",
+        kind="proof-verdict",
+        description="The proof artifact is the receipt, and a proof-verdict with no "
+        "evidence param at all would sail past a gate that only inspects the params "
+        "a node chose to carry. Same discipline as a-verdict-carries-evidence, bound "
+        "to this kind because rules scope by kind.",
+        expr="evidence >= 1",
+    ),
 ]
 
 
@@ -181,14 +238,51 @@ EXAMPLES = [
                         children=[
                             Node(id="pile-observed", kind="falsifier",
                                  name="Any enumeration of missed items on the return surface",
-                                 payload={"claim": "one list, count or streak-shame on "
-                                                   "first contact after absence fails this"}),
+                                 payload={
+                                     "claim": "one list, count or streak-shame on "
+                                              "first contact after absence fails this",
+                                     # The graduation: the same observation in the rule
+                                     # grammar, over an imported scenario whose node kinds
+                                     # are the app's semantic span names. Fires when the
+                                     # falsifying observation is present: this is a return
+                                     # and either a pile was shown (the prose says NEVER)
+                                     # or no next action was. The claim above stays the
+                                     # meaning; if they ever disagree, the prose wins and
+                                     # this expr is a bug.
+                                     "expr": "len(nodes('return-after-absence', self)) >= 1 "
+                                             "and (len(nodes('missed-pile-shown', self)) >= 1 "
+                                             "or len(nodes('next-action-shown', self)) == 0)"}),
                             Node(id="return-verdict", kind="verdict",
                                  name="pass — rendered return surface shows next step only",
                                  payload={"outcome": "pass",
                                           "mode": "rendered-surface reading"},
                                  params={"evidence": _receipts(
                                      2, True, "two rendered zero-state dumps, read")}),
+                            # The same expectation, discharged by proof: the graduated
+                            # expr decided mechanically instead of executed. Both verdicts
+                            # are kept — they answer from different worlds (a reading of
+                            # rendered surfaces; every behavior of the model plus every
+                            # refined tape), and the day they disagree is a finding.
+                            Node(id="return-proved", kind="proof-verdict",
+                                 name="pass — the expr holds over the proven model and "
+                                      "every refined, licensed, total tape on record",
+                                 payload={"outcome": "pass"},
+                                 params={"evidence": Quantity(
+                                     value=1, unit="artifact", grounded=True,
+                                     provenance="proved",
+                                     source="artifact://the proof run, content-addressed")},
+                                 children=[
+                                     Node(id="the-drawing", kind="model-ref",
+                                          name="the model this proof is a proof of",
+                                          payload={
+                                              "name": "the model package, by name",
+                                              "version": "its exact version",
+                                              "sha256": "its pinned digest",
+                                              "artifact": "artifact://the proof run — "
+                                                          "the address a later reader "
+                                                          "re-runs the confrontation "
+                                                          "from"}),
+                                 ]),
                         ],
                     ),
                 ],
@@ -241,12 +335,37 @@ COUNTER_EXAMPLES = [
                   name="pass, probably",
                   payload={"outcome": "pass", "mode": "vibes"}),
     ),
+    CounterExample(
+        rule="a-proof-names-its-model",
+        because="a conclusion with no premise on record — proved against what?",
+        node=Node(id="proved-against-something", kind="proof-verdict",
+                  name="pass — the checker said so",
+                  payload={"outcome": "pass"},
+                  params={"evidence": Quantity(
+                      value=1, unit="artifact", grounded=True, provenance="proved",
+                      source="artifact://a real artifact, of an unnamed model")}),
+    ),
+    CounterExample(
+        rule="a-proof-verdict-carries-evidence",
+        because="a proof whose artifact nobody can ask for",
+        node=Node(id="trust-the-math", kind="proof-verdict",
+                  name="pass — it is proven, somewhere",
+                  payload={"outcome": "pass"},
+                  children=[
+                      Node(id="a-model-at-least", kind="model-ref",
+                           name="the model is named; the artifact is not",
+                           payload={"name": "the model package, by name",
+                                    "version": "its exact version",
+                                    "sha256": "its pinned digest",
+                                    "artifact": "owed"}),
+                  ]),
+    ),
 ]
 
 
 ASSAY_PACKAGE = Package(
     name="assay",
-    version="0.1.0",
+    version="0.2.0",
     description="Blind trials as checkable data: intent-derived, implementation-blind "
                 "expectations confronted with the running system. Personas cast the "
                 "counterparty (simulated humans, rigged machines, nobody for platform "
@@ -254,7 +373,17 @@ ASSAY_PACKAGE = Package(
                 "expectations carry their falsifiers; verdicts carry their receipts "
                 "and are kept, falsified ones above all. The gate that refuses a "
                 "release resting on provisoire verdicts is ledger@'s — a trial "
-                "without a ledger has nowhere to keep what it learned.",
+                "without a ledger has nowhere to keep what it learned. New in 0.2.0, "
+                "the fifth confrontation mode: a falsifier may graduate to an expr "
+                "over the semantic alphabet, and the expectation be discharged by "
+                "proof and refinement instead of executed — a proof-verdict, naming "
+                "the model it is a proof of, its artifact for evidence. The standing "
+                "caveat travels with the machinery: proof relocates risk into "
+                "specification — a system can perfectly refine a proven model that "
+                "is wrong about the job. Proof-verdicts therefore never displace the "
+                "blind-trial discipline; they displace execution. The personas, the "
+                "RÉSERVE and the critic now interrogate the model as much as the "
+                "realization.",
     publisher="xag/assay",
     requires=[PackageRef(name="ledger", version="0.1.0")],  # exact, by doctrine
     vocabulary=VOCABULARY,
