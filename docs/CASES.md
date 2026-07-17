@@ -1,6 +1,8 @@
 # Worked cases — the examples that keep the abstraction honest
 
-Three uses made this a substrate; each stressed a different wall of it.
+Three uses made this a substrate; each stressed a different wall of it. One case is
+runnable in public: [assay-examples](https://github.com/xag/assay-examples) carries its
+model, tapes, receipts and decider, self-contained.
 
 ## 1. defi-vacances — where the practice was designed
 
@@ -20,6 +22,13 @@ to a persona walkthrough (a persona is charitable: it infers the intent through 
 awkward screen and returns PASS). Produced the **rendered-surface reading** mode and the
 craft-law expectations — laws the intent's properties switch on, now `craft@` in the
 registry, cited rather than restated.
+
+Second stress, later: the first expectation discharged by **proof** instead of
+execution (*the-latecomer*'s "returning shows what to do next — never a pile of what
+was missed"), decided in milliseconds over the app's semantic tapes with vacuity
+refused. That decision — model, tapes, proof artifacts, receipts, decider — is public
+and re-runnable at
+[assay-examples/chores/return-after-absence](https://github.com/xag/assay-examples/tree/main/chores/return-after-absence).
 
 ## 3. home — the counterparty is a machine, and the generalization is forced
 
