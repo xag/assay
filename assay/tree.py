@@ -116,6 +116,37 @@ def build() -> Quern:
             ],
         ),
         Node(
+            id="proof-is-a-mode-of-the-method",
+            kind="decision",
+            name="Proof enters the skill as the first routing stop and a design-time "
+                 "confrontation — inside the method, never a practice beside it",
+            payload={
+                "rationale":
+                    "Step 4 now examines every falsifier for an expr before any mode is "
+                    "chosen, and a model-carrying app gets its storylines compiled "
+                    "against the model before the realization exists. Kept inside the "
+                    "method, proof inherits its disciplines for free: verdicts kept "
+                    "(falsified ones above all), RÉSERVE, blindness as a property of "
+                    "inputs (the orchestrator owns the compilation), and the critic — "
+                    "whose brief grows the one question only the method can ask: is the "
+                    "model's abstraction of this promise the promise the persona was "
+                    "owed? The routing principle is stated where routing happens: proof "
+                    "displaces execution, never judgment.",
+            },
+            children=[
+                Node(id="alt-proof-as-separate-practice", kind="alternative",
+                     name="Keep proof outside the method as a separate practice",
+                     payload={"why": "Two verdict streams over one expectation with no "
+                                     "shared ledger: proof-mode PASSes would never meet "
+                                     "the critic, the model would never meet the "
+                                     "personas, and un-mechanized falsifiers would be "
+                                     "nobody's debt. The founding scar is exactly a "
+                                     "green channel nobody reads running beside the "
+                                     "channel that reads — a separate proof practice "
+                                     "would build a second one."}),
+            ],
+        ),
+        Node(
             id="rigs-catch-what-reasoning-cannot",
             kind="hypothesis",
             name="Casting machine counterparties from reference implementations catches "

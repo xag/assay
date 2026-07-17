@@ -5,10 +5,12 @@ description: >
   interface craft (and any funnel or machine counterparty) by confronting code-blind,
   intent-derived expectations with the running thing. Use when the user wants to test usability, write an
   app intent, generate blind personas/scenarios, confront storylines with flight-recorder
-  tapes, or find out why an interface reads badly when every test is green.
+  tapes, route expectations to proof over a semantic model, confront the model itself at
+  design time, or find out why an interface reads badly when every test is green.
   The pipeline: intent (job altitude) → blind scenario generation (subagent) →
   falsifiable expectations, plus craft expectations triggered by the intent →
-  confrontation (walkthroughs, flights, monitors, and reading the rendered screens).
+  confrontation (proof first, then walkthroughs, flights, monitors, and reading the
+  rendered screens).
 ---
 
 # The assay
@@ -45,6 +47,17 @@ checks, none of which read. **Step 3b** is the second question, and it is not op
 was added after an app shipped a localisation with 486 tests passing and 303/303 strings
 covered, whose empty screen told the user *"there is nothing to add"* directly above a button
 marked **Add**.
+
+**Proof changed where the budget goes, not what it buys.** Since `assay@0.2.0`, an
+expectation whose falsifier has graduated to an `expr` over the app's semantic alphabet is
+not run at all: it is decided by `tree_check` over a proven model and its refined tapes —
+milliseconds, exhaustive over the model, with receipts (step 4's first stop). The standing
+caveat travels with the machinery: **proofs relocate risk into specification; they do not
+remove it.** The founding scar does not move — a suite of proofs can be green while the
+model they prove is wrong about the job, exactly as 486 tests were green above a screen
+that contradicted its own button. What changes is where the human and persona budget is
+spent: no longer on what a machine can decide, entirely on whether the promises were the
+right ones.
 
 ## The intents directory
 
@@ -286,7 +299,40 @@ found, but that it finds the ones you had not.
 
 ## Step 4 — Confrontation
 
-Expectations split by whether the persona ever reaches the system's boundary. Key
+**First stop: proof.** Before the mode split below, examine every expectation once: does its
+falsifier carry an `expr` over the app's semantic alphabet (the span names an épure `model`
+package licenses)? If yes, route it to **proof mode** — the expr is decided by `tree_check`
+over the proven model (a `model/prove` artifact) and/or over refined, licensed, total tapes;
+the verdict is a `proof-verdict`, its evidence grounded by the proof/conformance artifacts
+(`provenance="proved"`, `source="artifact://<sha>"` — an owed artifact stays provisoire and
+the gate refuses it), and its `model-ref` child is mandatory: a proof is a proof *of a
+model*, and a proof that names no model is unfalsifiable. The routing principle, plainly:
+**proof displaces execution, never judgment.** An expectation whose falsifier reduces to
+co-location of meaning, ordering of acts, or bounds on state goes to proof; comprehension,
+confusion, tone, and real-hardware cells stay exactly where they are — walkthroughs,
+readers, named user-in-the-loop steps. The residue partition this step already draws
+(platform guarantees cast nobody; boundary-invisible expectations compile to nothing) gains
+a member: *proof-dischargeable expectations run nothing*.
+
+*Worked example — the falsifier that graduated.* The package's own miniature trial carries
+it (`assay@0.2.0`, scenario `the-return`): a persona signs up in a rush, disappears for
+three weeks, comes back guilty. The expectation: *returning shows what to do next — never a
+pile of what was missed*. The falsifier's prose: *any enumeration of missed items on the
+return surface fails this*. Its graduation — the same observation in the rule grammar, over
+an imported scenario subtree whose node kinds are the app's own span names:
+
+```
+len(nodes('return-after-absence', self)) >= 1
+  and (len(nodes('missed-pile-shown', self)) >= 1
+       or len(nodes('next-action-shown', self)) == 0)
+```
+
+`tree_check` decides that over every behavior of the proven model and every refined tape on
+record, where a walkthrough decided it once, for one persona, in one cell. The prose stays
+mandatory: it is the meaning, the expr its mechanization — when they disagree, the prose
+wins and the expr is a bug.
+
+Everything not routed to proof splits by whether the persona ever reaches the system's boundary. Key
 unification: a *test scenario* and a *production monitor* are the same artifact — an
 invariant over a tape — differing only in whether the tape is scripted or lived.
 
@@ -354,7 +400,9 @@ invariant over a tape — differing only in whether the tape is scripted or live
 `mitigé` names which half of the promise holds and which breaks — walkthroughs produce
 it constantly and flattening it to pass/fail loses the finding. `fail` → fix the app.
 `hors-champ` → a finding about the intent: extend it, journal why, regenerate scenarios
-from the extended part only.
+from the extended part only. The verdict table's `mode` column admits `proof`; evidence
+for a proof-mode row is the artifact address (`artifact://<sha>`), not a receipt count —
+the artifact is the receipt, and it is one a later reader re-runs.
 
 **Where results live:** verdicts and the confrontation report go in the *app's* ledger
 (they describe the realization); the intents directory stays verdict-free. Report shape
@@ -368,6 +416,26 @@ with the boundary.
 **After the fixes:** re-confront the working set, *then* unfreeze the RÉSERVE for its
 single confrontation (the overfitting measure), then close the loop on real traces.
 
+## Confronting the model (design-time assay)
+
+When the app under trial carries a semantic model (an épure `model` package), the blind
+storylines have a second target: the **model itself**, before or without the realization.
+A persona's storyline compiles to a path query over the model's actions and invariants —
+can the model even express this life? A storyline the model cannot express is a `fail`
+against the *design*, found before a line of the realization exists — the cheapest moment
+a defect will ever be found at.
+
+The disciplines carry over unchanged, and saying so explicitly is the point:
+
+- **Blindness is a property of inputs.** The scenario side never sees the model — the
+  orchestrator owns the compilation, exactly as it owns walkthrough spawning. A storyline
+  written with the model in view tests nothing but its author's memory of the model.
+- **Verdicts against the model are labelled as such** and never substitute for
+  confrontation of the realization. The model can be wrong about the world — and with the
+  mechanical questions gone to proof, that is now the *main* thing the trial is hunting.
+- **RÉSERVE and the adversarial critic apply.** The critic's brief gains a question for
+  exactly this mode — see step 5.
+
 ## Orchestration (multi-agent runs)
 
 The firewall is a property of *contexts*, so the orchestrator — not a worker — owns all
@@ -380,7 +448,9 @@ per pack; a step-5 critic reviews; the code-aware agent integrates. Two integrat
 rules, both violated once: **verdict tables must carry the persona's verdict verbatim**
 (requalifying needs a stated receipt — integrators soften FAILs into MITIGÉs when left
 alone), and **everything not confronted is listed by name** in a "non confronté"
-section — an absent verdict otherwise reads as covered.
+section — an absent verdict otherwise reads as covered. That section also lists, by
+name, every expectation that *could* carry an expr but doesn't — an un-mechanized
+falsifier is visible debt, not silent prose.
 
 ## Step 5 — Critic of the confrontation
 
@@ -388,8 +458,9 @@ Before the report is final, spawn one adversarial agent given the *intent, the
 scenarios, and the report* — but not the code. Its brief: hunt altitude drift. For
 every PASS, it asks "what does this mean in the persona's life — whose job, on whose
 device?"; for every verified mechanism, "is this where the users are, or where the
-light was?"; for every world-fact, "where's the receipt?". Its findings reopen
-verdicts. This role existed in one run only because the human asked "what does it
+light was?"; for every world-fact, "where's the receipt?"; for every proof-mode PASS,
+"is the model's abstraction of this promise the promise the persona was actually
+owed?". Its findings reopen verdicts. This role existed in one run only because the human asked "what does it
 even mean to enable notifications on desktop?" — the question that exposed a PASS
 proving nothing and a product trap (per-device permission ≠ the device in the
 pocket). The method must ask it itself.
