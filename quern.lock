@@ -2,13 +2,13 @@
   "packages": [
     {
       "name": "assay",
-      "version": "0.3.0",
-      "sha256": "d6298e4d92733f126b68f970e4bd2cb66c63f25edefa548a67acdb940dd8f86d"
+      "version": "0.4.1",
+      "sha256": "fd5d3b6f2161b6478cec0cfece395b5448e1262955af3b799871bfa2c2c8028b"
     },
     {
       "name": "ledger",
-      "version": "0.1.0",
-      "sha256": "422ca2c0b65f4fe0c0c9583952dc989206311a8fc6d9da5197800f257a4453d4"
+      "version": "0.3.0",
+      "sha256": "4d82b76fd6a8943d89c440f90e49253776b85b37f59fa45f1bb0ff5f1f749558"
     },
     {
       "name": "grounding",

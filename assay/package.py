@@ -365,7 +365,7 @@ COUNTER_EXAMPLES = [
 
 ASSAY_PACKAGE = Package(
     name="assay",
-    version="0.4.0",
+    version="0.4.1",
     description="Blind trials as checkable data: intent-derived, implementation-blind "
                 "expectations confronted with the running system. Personas cast the "
                 "counterparty (simulated humans, rigged machines, nobody for platform "
@@ -392,9 +392,12 @@ ASSAY_PACKAGE = Package(
                 "That version lets an entry declare what it `rests_on` and go red when "
                 "its grounds are withdrawn, and makes removing an entry a recorded act "
                 "rather than a diff - both of which a record of falsified verdicts "
-                "wants more than most.",
+                "wants more than most. 0.4.1 moves it to 0.3.0: corrections travel by "
+                "supersession on every entry kind, and the roll digests what each "
+                "entry says - a falsified verdict quietly rewritten is exactly the "
+                "erasure a trial record cannot afford.",
     publisher="xag/assay",
-    requires=[PackageRef(name="ledger", version="0.2.0")],  # exact, by doctrine
+    requires=[PackageRef(name="ledger", version="0.3.0")],  # exact, by doctrine
     vocabulary=VOCABULARY,
     rules=RULES,
     examples=EXAMPLES,
