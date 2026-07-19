@@ -365,7 +365,7 @@ COUNTER_EXAMPLES = [
 
 ASSAY_PACKAGE = Package(
     name="assay",
-    version="0.3.0",
+    version="0.4.0",
     description="Blind trials as checkable data: intent-derived, implementation-blind "
                 "expectations confronted with the running system. Personas cast the "
                 "counterparty (simulated humans, rigged machines, nobody for platform "
@@ -386,9 +386,15 @@ ASSAY_PACKAGE = Package(
                 "realization. 0.3.0 changes no kind, rule or example: it renames the "
                 "working vocabulary to plain English — mixed, out-of-scope, "
                 "provisional, the held-out set — because a generic library must not "
-                "make an adopter learn French to read a verdict.",
+                "make an adopter learn French to read a verdict. 0.4.0 changes no kind, rule "
+                "or example either: it moves the ledger requirement to 0.2.0, so a "
+                "trial and the ledger it keeps its findings in can sit in one closure. "
+                "That version lets an entry declare what it `rests_on` and go red when "
+                "its grounds are withdrawn, and makes removing an entry a recorded act "
+                "rather than a diff - both of which a record of falsified verdicts "
+                "wants more than most.",
     publisher="xag/assay",
-    requires=[PackageRef(name="ledger", version="0.1.0")],  # exact, by doctrine
+    requires=[PackageRef(name="ledger", version="0.2.0")],  # exact, by doctrine
     vocabulary=VOCABULARY,
     rules=RULES,
     examples=EXAMPLES,
