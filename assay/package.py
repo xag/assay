@@ -365,7 +365,7 @@ COUNTER_EXAMPLES = [
 
 ASSAY_PACKAGE = Package(
     name="assay",
-    version="0.4.2",
+    version="0.4.3",
     description="Blind trials as checkable data: intent-derived, implementation-blind "
                 "expectations confronted with the running system. Personas cast the "
                 "counterparty (simulated humans, rigged machines, nobody for platform "
@@ -397,7 +397,7 @@ ASSAY_PACKAGE = Package(
                 "entry says - a falsified verdict quietly rewritten is exactly the "
                 "erasure a trial record cannot afford. 0.4.2 moves it to 0.4.0: entries carry a word budget, finished arguments a recorded exit (compaction), and the working set reads at a line per claim - a trial ledger that grows without brake is a cost, not a record.",
     publisher="xag/assay",
-    requires=[PackageRef(name="ledger", version="0.4.0")],  # exact, by doctrine
+    requires=[PackageRef(name="ledger", version="0.4.1")],  # exact, by doctrine
     vocabulary=VOCABULARY,
     rules=RULES,
     examples=EXAMPLES,
