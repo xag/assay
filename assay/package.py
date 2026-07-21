@@ -365,7 +365,7 @@ COUNTER_EXAMPLES = [
 
 ASSAY_PACKAGE = Package(
     name="assay",
-    version="0.4.3",
+    version="0.4.4",
     description="Blind trials as checkable data: intent-derived, implementation-blind "
                 "expectations confronted with the running system. Personas cast the "
                 "counterparty (simulated humans, rigged machines, nobody for platform "
@@ -395,9 +395,9 @@ ASSAY_PACKAGE = Package(
                 "wants more than most. 0.4.1 moves it to 0.3.0: corrections travel by "
                 "supersession on every entry kind, and the roll digests what each "
                 "entry says - a falsified verdict quietly rewritten is exactly the "
-                "erasure a trial record cannot afford. 0.4.2 moves it to 0.4.0: entries carry a word budget, finished arguments a recorded exit (compaction), and the working set reads at a line per claim - a trial ledger that grows without brake is a cost, not a record.",
+                "erasure a trial record cannot afford. 0.4.2 moves it to 0.4.0: entries carry a word budget, finished arguments a recorded exit (compaction), and the working set reads at a line per claim - a trial ledger that grows without brake is a cost, not a record. 0.4.4 moves it to 0.5.0, which carries grounding@1.1.0: the provenance contracts a release gate calls now each describe themselves and their arguments, instead of sharing one line that pointed elsewhere - a reader meeting a gate that refuses a release can see what decided it.",
     publisher="xag/assay",
-    requires=[PackageRef(name="ledger", version="0.4.1")],  # exact, by doctrine
+    requires=[PackageRef(name="ledger", version="0.5.0")],  # exact, by doctrine
     vocabulary=VOCABULARY,
     rules=RULES,
     examples=EXAMPLES,
