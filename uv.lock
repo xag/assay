@@ -25,7 +25,7 @@ dev = [
 ]
 
 [package.metadata]
-requires-dist = [{ name = "quern", git = "https://github.com/xag/quern?rev=e69386e" }]
+requires-dist = [{ name = "quern", git = "https://github.com/xag/quern?rev=290ea38" }]
 
 [package.metadata.requires-dev]
 dev = [{ name = "pytest", specifier = ">=8.0.0" }]
@@ -211,7 +211,7 @@ wheels = [
 [[package]]
 name = "quern"
 version = "0.1.0"
-source = { git = "https://github.com/xag/quern?rev=e69386e#e69386ea8fbd3af7b50c9c74fc76c6ea1fe80bd7" }
+source = { git = "https://github.com/xag/quern?rev=290ea38#290ea381890698134052d9020481df169956c7c0" }
 dependencies = [
     { name = "pydantic" },
     { name = "wasmtime" },
@@ -261,4 +261,4 @@ wheels = [
 [[package]]
 name = "xag-flight-recorder"
 version = "0.8.0"
-source = { git = "https://github.com/xag/flight-recorder?rev=761b40b#761b40bf5f170cb3d2fb057aee810ec71e9a3d43" }
+source = { git = "https://github.com/xag/flight-recorder?rev=72df978#72df978fb7885abff4d74b5e7af64a3753bb2b5a" }
