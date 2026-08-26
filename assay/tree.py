@@ -40,12 +40,11 @@ def build() -> Quern:
             children=[
                 Node(id="alt-stay-a-skill", kind="alternative",
                      name="Keep it a claude-plugins skill and never a package",
-                     payload={"why": "A skill is advice to a mind, read at task time — "
-                                     "rung 2 of the hardening ladder. The method's "
-                                     "hard-won lessons (falsifiability, blindness, "
-                                     "stand-in fidelity, receipts) are claims that can "
-                                     "go RED, and prose cannot fire. The skill stays, "
-                                     "but as the procedure half only."}),
+                     payload={"why": "A skill is advice to a mind, read at task time — rung 2 "
+                                     "of the hardening ladder. The method's hard-won lessons "
+                                     "(falsifiability, blindness, stand-in fidelity, receipts) "
+                                     "are claims that can go RED, and prose carries no check. "
+                                     "The skill stays, but as the procedure half only."}),
                 Node(id="alt-fourth-substrate-in-quern", kind="alternative",
                      name="Author assay@ inside quern's source like ledger@ once was",
                      payload={"why": "Rejected by discharge: the exact siting quern's own "
@@ -59,11 +58,11 @@ def build() -> Quern:
             name="The name is assay: the standardized blind trial that gates capitalization",
             payload={
                 "rationale":
-                    "Ore became coin only by passing the assay office — nothing becomes "
-                    "capital without surviving a trial, which is this substrate's whole "
-                    "claim. It verbs cleanly (assay the funnel, assay the widget, the "
-                    "chores assay). 'blind-usability' is wrong for funnels and machine "
-                    "hosts, and extraction is the one moment renaming is allowed.",
+                    "Ore became coin only by passing the assay office — the analogy is exact: "
+                    "this substrate gates on a trial rather than on assertion. It verbs cleanly "
+                    "(assay the funnel, assay the widget, the chores assay). 'blind-usability' "
+                    "is wrong for funnels and machine hosts, and extraction is the one moment "
+                    "renaming is allowed.",
             },
             children=[
                 Node(id="alt-crucible", kind="alternative", name="crucible",
@@ -136,14 +135,13 @@ def build() -> Quern:
             children=[
                 Node(id="alt-proof-as-separate-practice", kind="alternative",
                      name="Keep proof outside the method as a separate practice",
-                     payload={"why": "Two verdict streams over one expectation with no "
-                                     "shared ledger: proof-mode PASSes would never meet "
-                                     "the critic, the model would never meet the "
-                                     "personas, and un-mechanized falsifiers would be "
-                                     "nobody's debt. The founding scar is exactly a "
-                                     "green channel nobody reads running beside the "
-                                     "channel that reads — a separate proof practice "
-                                     "would build a second one."}),
+                     payload={"why": "Two verdict streams over one expectation with no shared "
+                                     "ledger: proof-mode PASSes would never meet the critic, "
+                                     "the model would never meet the personas, and "
+                                     "un-mechanized falsifiers would be nobody's debt. The "
+                                     "founding incident was exactly that: a green channel "
+                                     "nobody reads, running beside the channel that does — a "
+                                     "separate proof practice would build a second one."}),
             ],
         ),
         Node(
@@ -317,9 +315,9 @@ def build() -> Quern:
                     "private history proves nothing a stranger needs, and the journal "
                     "carries what mattered.",
                 "consequence":
-                    "Pre-flip provenance (the rig's port verification, the three bugs) "
-                    "lives on in the private repos that produced it and in this "
-                    "journal's own account; public archaeology starts today.",
+                    "Pre-flip provenance (the rig's port verification, the three bugs) lives on "
+                    "in the private repos that produced it and in this journal's own account; "
+                    "public history starts at the flip commit.",
             },
             children=[
                 Node(id="alt-rewrite-history", kind="alternative",
